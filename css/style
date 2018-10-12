@@ -1,0 +1,266 @@
+body {
+  background-color: #fadd9f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.background {
+  width: 100%;
+  height: 450px;
+  background-image: url("../img/background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin: 70px auto;
+  position: relative;
+}
+
+.letter {
+  pointer-events: none;
+  width: 450px;
+  height: 630px;
+  border: 5px solid #a7d1c9;
+  background-color: #ffffff;
+  position: absolute;
+  top: 10px;
+  z-index: 1;
+
+  .path {
+    fill: none;
+    stroke: #242424;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+  }
+}
+
+
+@keyframes eyes {
+  0%, 79.999% {
+    background-position: top left;
+  }
+
+  80%, 100% {
+    background-position: top right;
+  }
+}
+
+@keyframes dog-drop {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    bottom: 800px;
+    opacity: 1;
+  }
+
+  100% {
+    bottom: -4px;
+    opacity: 1;
+  }
+}
+
+.dog-drop {
+  position: absolute;
+  bottom: -4px;
+  right: 260px;
+  opacity: 0;
+  animation: dog-drop 0.8s 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.dog {
+  width: 158px;
+  height: 300px;
+  background-image: url("../img/pug.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
+  animation: eyes 3s infinite;
+}
+
+
+
+@keyframes ribbon-left-up {
+  0% {
+    height: 35.62px;
+    y: 31.26;
+  }
+  60% {
+    height: 10px;
+    y: 31.26;
+  }
+  100% {
+    height: 10px;
+    y: -54;
+  }
+}
+
+@keyframes angle-up {
+  0% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-28px);
+  }
+  100% {
+    transform: translateY(-113px);
+  }
+}
+
+@keyframes gift-drop {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    bottom: 800px;
+    opacity: 1;
+   }
+
+  100% {
+    bottom: -100px;
+    opacity: 1;
+  }
+}
+
+.gift {
+  position: absolute;
+  bottom: -100px;
+  left: 255px;
+  opacity: 0;
+  animation: gift-drop 0.8s 1s ease-in-out;
+  animation-fill-mode: forwards;
+
+
+  .card {
+    width: 72px;
+    height: 100px;
+    background-image: url("../img/card.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top left;
+    position: absolute;
+    bottom: 124px;
+    left: 30px;
+    border: none;
+    border-radius: 0;
+    transition: 0.5s 0.6s;
+
+    &.card-up {
+      bottom: 170px;
+    }
+
+
+  }
+
+  #gift {
+    width: 130px;
+    height: 350px;
+    position: relative;
+
+    .box {
+      fill: #f8cac3;
+    }
+  }
+
+  .lid {
+    transition: 0.5s 0.6s;
+
+    &.lid-up {
+      y: -50;
+    }
+  }
+
+  .ribbon-top {
+    transform: translate(-346.25px, -451.3px);
+    transition: 0.5s 0.6s;
+
+    &.ribbon-up {
+      transform: translate(-346.25px, -536.3px);
+    }
+  }
+
+  .ribbon {
+    transition: 0.4s;
+
+    &.ribbon-left-up {
+      animation: ribbon-left-up 1s;
+      animation-fill-mode: forwards;
+    }
+
+    &.angle-up {
+      animation: angle-up 1s;
+      animation-fill-mode: forwards;
+    }
+
+    &.ribbon-right-down {
+      y: 50;
+      height: 92px;
+    }
+  }
+}
+
+
+
+@keyframes fire-shake {
+
+  0%, 100% {
+    fill: #fbcd04;
+    height: 22px;
+  }
+
+  50% {
+    fill: #ffc617;
+    height: 25px;
+  }
+}
+
+@keyframes fire-shadow {
+
+  0%, 100% {
+    opacity: 0.15;
+    height: 100px;
+    width: 100px;
+  }
+
+  50% {
+    opacity: 0.1;
+    height: 95px;
+    width: 95px;
+  }
+}
+
+
+.fire {
+  height: 22px;
+  width: 48px;
+  position: absolute;
+  bottom: 340px;
+  left: 510px;
+  fill: #fdd214;
+  animation: fire-shake 0.5s infinite;
+
+  #fire {
+    width: 100%;
+    height: 100%;
+  }
+
+  .circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fdea90;
+    opacity: 0.15;
+    position: absolute;
+    bottom: -40px;
+    left: -24px;
+    animation: fire-shadow 0.5s infinite;
+  }
+}
+
+
+
