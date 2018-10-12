@@ -1,5 +1,13 @@
 body {
   background-color: #fadd9f;
+  font-family: 	Courier, "Microsoft JhengHei", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  color: #242424;
+}
+
+.main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,22 +26,63 @@ body {
 }
 
 .letter {
-  pointer-events: none;
   width: 450px;
   height: 630px;
-  border: 5px solid #a7d1c9;
+  border: 10px solid #a7d1c9;
+  padding: 25px;
   background-color: #ffffff;
   position: absolute;
   top: 10px;
   z-index: 1;
+
+
+  .letter-inner {
+    width: 100%;
+    height: 460px;
+    overflow-y: scroll;
+    margin: 15px auto;
+    text-indent: 20px;
+
+    &:after {
+      background: linear-gradient(to bottom, transparent, #fff);
+    }
+  }
+
+
+  @keyframes signature {
+    0% {stroke-dashoffset: 447;}
+    100% {stroke-dashoffset: 0;}
+  }
+
+  #yuli,
+  #sara {
+    height: 33px;
+    margin-left: 10px;
+    margin-bottom: -10px;
+    stroke-dasharray: 447;
+    stroke-dashoffset: 447;
+    animation: signature 3s;
+    animation-fill-mode: forwards;
+  }
+
+  #sara {
+    animation: signature 3s 10s;
+    animation-fill-mode: forwards;
+  }
+
+  .signature {
+    float: right;
+  }
 
   .path {
     fill: none;
     stroke: #242424;
     stroke-linecap: round;
     stroke-miterlimit: 10;
-    stroke-width: 2px;
+    stroke-width: 4px;
   }
+
+
 }
 
 
