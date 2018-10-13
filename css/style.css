@@ -324,23 +324,23 @@ body {
 @keyframes fire-shake {
   0%,
   100% {
-    fill: #fbcd04;
+    fill: #fdd617;
     height: 22px;
   }
   50% {
-    fill: #ffc617;
+    fill: #ffc514;
     height: 25px;
   }
 }
 @keyframes fire-shadow {
   0%,
   100% {
-    opacity: 0.15;
+    opacity: 0.2;
     height: 100px;
     width: 100px;
   }
   50% {
-    opacity: 0.1;
+    opacity: 0.15;
     height: 95px;
     width: 95px;
   }
@@ -352,7 +352,7 @@ body {
   bottom: 340px;
   left: 510px;
   fill: #fdd214;
-  animation: fire-shake 0.5s infinite;
+  animation: fire-shake 1s infinite;
 }
 @media (max-width: 1199.98px) {
   .fire {
@@ -385,6 +385,6 @@ body {
   position: absolute;
   bottom: -40px;
   left: -24px;
-  animation: fire-shadow 0.5s infinite;
+  animation: fire-shadow 1s infinite;
 }
 /*# sourceMappingURL=style.css.map */
