@@ -33,8 +33,18 @@ var ribbonUp = $('.ribbon-top');
 var ribbonLeft = $('.ribbon-left');
 var ribbonRight = $('.ribbon-right');
 var angle = $('.angle');
-var card = $('.card')
-var letter = $('.letter')
+var card = $('.card');
+var letter = $('.letter');
+var giftBox = $('#gift');
+var close = $('.cross');
+var background = $('.background');
+var yuli = $('#yuli');
+var sara = $('#sara');
+var i = $('#i');
+var pathY = $('#path-y');
+
+
+
 
 gift.on('click', function () {
     lid.addClass('lid-up');
@@ -43,8 +53,27 @@ gift.on('click', function () {
     ribbonRight.addClass('ribbon-right-down');
     angle.addClass('angle-up');
     card.addClass('card-up');
+    giftBox.addClass('gift-no-point');
 });
 
 card.on('click', function () {
     letter.addClass('show-letter');
+    yuli.addClass('yuli-ani');
+    pathY.addClass('path-y-ani');
+    i.addClass('i-ani');
+    sara.addClass('sara-ani');
 });
+
+close.on('click', function () {
+    letter.removeClass('show-letter');
+});
+//
+// background.on('click', function () {
+//     lid.removeClass('lid-up');
+//     ribbonUp.removeClass('ribbon-up');
+//     ribbonLeft.removeClass('ribbon-left-up');
+//     ribbonRight.removeClass('ribbon-right-down');
+//     angle.removeClass('angle-up');
+//     card.removeClass('card-up');
+//     giftBox.removeClass('gift-no-point');
+// });

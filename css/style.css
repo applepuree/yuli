@@ -1,7 +1,7 @@
 body {
   background-color: #fadd9f;
-  font-family: Courier, "Microsoft JhengHei", sans-serif;
-  font-size: 15px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0.5px;
   color: #242424;
@@ -11,6 +11,21 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+@media (max-width: 540px) {
+  .main::before {
+    content: "請旋轉螢幕或移致電腦版使用:)";
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (max-width: 540px) {
+  .container {
+    display: none;
+  }
 }
 .background {
   width: 100%;
@@ -22,6 +37,11 @@ body {
   margin: 70px auto;
   position: relative;
 }
+@media (min-width: 540px) and (max-width: 767.98px) {
+  .background {
+    height: 315px;
+  }
+}
 .letter {
   width: 450px;
   height: 630px;
@@ -30,17 +50,49 @@ body {
   background-color: #ffffff;
   position: absolute;
   top: 10px;
+  left: 50%;
+  transform: translateX(-225px);
   z-index: 1;
+  visibility: hidden;
+}
+.letter.show-letter {
+  visibility: visible;
+}
+.letter .title {
+  display: inline;
+}
+.letter .cross {
+  width: 20px;
+  height: 20px;
+  float: right;
+  cursor: pointer;
+}
+.letter .cross .icon-bar {
+  transform-origin: -10% 50%;
+}
+.letter .cross .icon-bar:first-child {
+  transform: rotate(45deg);
+}
+.letter .cross .icon-bar:last-child {
+  transform: rotate(-45deg);
+}
+.letter .cross .icon-bar {
+  width: 20px;
+  height: 2px;
+  background-color: #a7d1c9;
+  margin-bottom: 15px;
+  display: block;
 }
 .letter .letter-inner {
   width: 100%;
-  height: 460px;
+  height: 470px;
   overflow-y: scroll;
   margin: 15px auto;
-  text-indent: 20px;
+  text-indent: 2rem;
 }
-.letter .letter-inner:after {
-  background: linear-gradient(to bottom, transparent, #fff);
+.letter .letter-inner:before {
+  content: "";
+  background: linear-gradient(to bottom, transparent, #ffffff);
 }
 @keyframes signature {
   0% {
@@ -50,19 +102,37 @@ body {
     stroke-dashoffset: 0;
   }
 }
-.letter #yuli,
-.letter #sara {
+@keyframes signature-i {
+  0% {
+    stroke-dashoffset: 10;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.letter .yuli-ani,
+.letter .sara-ani {
   height: 33px;
   margin-left: 10px;
   margin-bottom: -10px;
+}
+.letter .path-y-ani {
   stroke-dasharray: 447;
   stroke-dashoffset: 447;
-  animation: signature 3s;
+  animation: signature 3s 1s;
   animation-fill-mode: forwards;
 }
-.letter #sara {
-  animation: signature 3s 10s;
+.letter .i-ani {
+  stroke-dasharray: 10;
+  stroke-dashoffset: 10;
+  animation: signature-i 0.5s 2.5s;
   animation-fill-mode: forwards;
+}
+.letter .sara-ani {
+  animation: signature 3s 5s;
+  animation-fill-mode: forwards;
+  stroke-dasharray: 447;
+  stroke-dashoffset: 447;
 }
 .letter .signature {
   float: right;
@@ -104,6 +174,23 @@ body {
   opacity: 0;
   animation: dog-drop 0.8s 0.3s ease-in-out;
   animation-fill-mode: forwards;
+}
+@media (max-width: 1199.98px) {
+  .dog-drop {
+    right: 170px;
+  }
+}
+@media (max-width: 991.98px) {
+  .dog-drop {
+    right: 70px;
+  }
+}
+@media (max-width: 767.98px) {
+  .dog-drop {
+    right: 25px;
+    transform: scale(0.7);
+    transform-origin: bottom;
+  }
 }
 .dog {
   width: 158px;
@@ -159,6 +246,24 @@ body {
   opacity: 0;
   animation: gift-drop 0.8s 1s ease-in-out;
   animation-fill-mode: forwards;
+  cursor: pointer;
+}
+@media (max-width: 1199.98px) {
+  .gift {
+    left: 165px;
+  }
+}
+@media (max-width: 991.98px) {
+  .gift {
+    left: 65px;
+  }
+}
+@media (max-width: 767.98px) {
+  .gift {
+    left: 45px;
+    transform: scale(0.7);
+    transform-origin: left 70%;
+  }
 }
 .gift .card {
   width: 72px;
@@ -182,34 +287,37 @@ body {
   height: 350px;
   position: relative;
 }
+.gift #gift.gift-no-point {
+  pointer-events: none;
+}
 .gift #gift .box {
   fill: #f8cac3;
 }
-.gift .lid {
+.gift #gift .lid {
   transition: 0.5s 0.6s;
 }
-.gift .lid.lid-up {
+.gift #gift .lid.lid-up {
   y: -50;
 }
-.gift .ribbon-top {
+.gift #gift .ribbon-top {
   transform: translate(-346.25px, -451.3px);
   transition: 0.5s 0.6s;
 }
-.gift .ribbon-top.ribbon-up {
+.gift #gift .ribbon-top.ribbon-up {
   transform: translate(-346.25px, -536.3px);
 }
-.gift .ribbon {
+.gift #gift .ribbon {
   transition: 0.4s;
 }
-.gift .ribbon.ribbon-left-up {
+.gift #gift .ribbon.ribbon-left-up {
   animation: ribbon-left-up 1s;
   animation-fill-mode: forwards;
 }
-.gift .ribbon.angle-up {
+.gift #gift .ribbon.angle-up {
   animation: angle-up 1s;
   animation-fill-mode: forwards;
 }
-.gift .ribbon.ribbon-right-down {
+.gift #gift .ribbon.ribbon-right-down {
   y: 50;
   height: 92px;
 }
@@ -246,11 +354,29 @@ body {
   fill: #fdd214;
   animation: fire-shake 0.5s infinite;
 }
+@media (max-width: 1199.98px) {
+  .fire {
+    left: 420px;
+  }
+}
+@media (max-width: 991.98px) {
+  .fire {
+    left: 325px;
+  }
+}
+@media (max-width: 767.98px) {
+  .fire {
+    bottom: 235px;
+    left: 217px;
+    transform: scale(0.7);
+  }
+}
 .fire #fire {
   width: 100%;
   height: 100%;
 }
-.fire .circle {
+.fire::before {
+  content: "";
   width: 100px;
   height: 100px;
   border-radius: 50%;
