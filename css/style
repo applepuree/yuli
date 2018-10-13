@@ -21,7 +21,7 @@ body {
   @media (max-width: 540px) {
 
     &::before {
-      content: "請旋轉螢幕或移致電腦版使用:)";
+      content: "請旋轉螢幕或移至電腦版使用:)";
     }
   }
 }
