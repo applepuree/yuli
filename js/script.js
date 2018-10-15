@@ -47,14 +47,39 @@ var pathY = $('#path-y');
 
 
 gift.on('click', function () {
-    lid.addClass('lid-up');
-    ribbonUp.addClass('ribbon-up');
-    ribbonLeft.addClass('ribbon-left-up');
-    ribbonRight.addClass('ribbon-right-down');
-    angle.addClass('angle-up');
-    card.addClass('card-up');
-    giftBox.addClass('gift-no-point');
+
+    //假如這個按鈕有一個叫做clicked的class的話，執行下兩行動作
+    if($(this).hasClass("clicked")) {
+        ribbonUp.removeClass('ribbon-up');
+        ribbonLeft.removeClass('ribbon-left-up');
+        ribbonRight.removeClass('ribbon-right-down');
+        angle.removeClass('angle-up');
+        card.removeClass('card-up');
+        lid.removeClass('lid-up');
+        giftBox.removeClass('gift-no-point');
+        $(this).removeClass("clicked");
+        //如果前面的條件全部不成立，執行下兩個動作
+    } else {
+        lid.addClass('lid-up');
+        ribbonUp.addClass('ribbon-up');
+        ribbonLeft.addClass('ribbon-left-up');
+        ribbonRight.addClass('ribbon-right-down');
+        angle.addClass('angle-up');
+        card.addClass('card-up');
+        giftBox.addClass('gift-no-point');
+        $(this).addClass("clicked");
+    }
 });
+//
+// gift.on('click', function () {
+//     lid.addClass('lid-up');
+//     ribbonUp.addClass('ribbon-up');
+//     ribbonLeft.addClass('ribbon-left-up');
+//     ribbonRight.addClass('ribbon-right-down');
+//     angle.addClass('angle-up');
+//     card.addClass('card-up');
+//     giftBox.addClass('gift-no-point');
+// });
 
 card.on('click', function () {
     letter.addClass('show-letter');
@@ -71,13 +96,13 @@ card.on('click', function () {
 close.on('click', function () {
     letter.removeClass('show-letter');
 });
-
-gift.on('dblclick', function () {
-    lid.removeClass('lid-up');
-    ribbonUp.removeClass('ribbon-up');
-    ribbonLeft.removeClass('ribbon-left-up');
-    ribbonRight.removeClass('ribbon-right-down');
-    angle.removeClass('angle-up');
-    card.removeClass('card-up');
-    giftBox.removeClass('gift-no-point');
-});
+//
+// gift.on('dblclick', function () {
+//     lid.removeClass('lid-up');
+//     ribbonUp.removeClass('ribbon-up');
+//     ribbonLeft.removeClass('ribbon-left-up');
+//     ribbonRight.removeClass('ribbon-right-down');
+//     angle.removeClass('angle-up');
+//     card.removeClass('card-up');
+//     giftBox.removeClass('gift-no-point');
+// });
